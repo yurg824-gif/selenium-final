@@ -20,10 +20,16 @@ class ProductPage(BasePage):
         msg = self.browser.find_element(*ProductPageLocators.MSG_PRODUCT_IN_BASKET)
         msg_expected_text = self.product_name + " был добавлен в вашу корзину."        
         assert msg.text == msg_expected_text, "There is no message about adding the item to the cart"
-        pass        
-
+        
     def should_be_basket_cost_eq_product(self):
         msg_basket_cost = self.browser.find_element(*ProductPageLocators.MSG_BASKET_COST)
         msg_expected_basket_cost = "Всего в корзине: " + self.product_price + "\nПосмотреть корзину"        
         assert msg_basket_cost.text == msg_expected_basket_cost, "The basket value is not equal to the product price"
-        pass
+        
+    def cant_see_success_message(self):
+        assert  not self.is_not_element_present(*ProductPageLocators.MSG_PRODUCT_IN_BASKET),\
+            "Success message is present"
+        
+    def message_disappeared(self):
+        assert self.is_disappeared(*ProductPageLocators.MSG_PRODUCT_IN_BASKET),\
+            "Success message is disappeared"
