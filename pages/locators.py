@@ -3,6 +3,11 @@ from selenium.webdriver.common.by import By
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    VIEW_BASKET_BUTTON = (By.XPATH, "//span/a[contains(@class, 'btn')][contains(@href, 'basket')]")
+    PROCEED_TO_CHECKOUT_BUTTON = (By.XPATH, "//div/a[contains(@class, 'btn')][contains(@href, 'checkout')]")
+    EMPTY_BASKET_TEXT = (By.CSS_SELECTOR, "#content_inner > p")
+    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
+
 
 class MainPageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
